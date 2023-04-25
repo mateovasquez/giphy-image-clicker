@@ -1,3 +1,7 @@
+<template>
+  <RouterView />
+</template>
+
 <script>
 import { RouterView } from 'vue-router'
 export default {
@@ -5,10 +9,6 @@ export default {
   components: RouterView,
 }
 </script>
-
-<template>
-  <RouterView />
-</template>
 
 <style scoped>
 </style>
