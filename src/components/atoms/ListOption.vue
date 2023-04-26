@@ -25,9 +25,17 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: grey;
+  background: var(--color-text);
+  color: var(--color-background-mute);
+  border-bottom: 1px solid var(--color-background-mute);
+  cursor: pointer;
   &__text {
     text-align: center;
+  }
+  &:hover {
+    background-color: var(--vt-c-divider-dark-1);
+    color: var(--color-text);
+    transition: all .2s ease;
   }
 }
 </style>

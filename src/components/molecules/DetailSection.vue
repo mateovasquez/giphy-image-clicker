@@ -4,7 +4,7 @@
     <div class="container__detail__description">
       <ul>
         <li>Title: {{gifTitle}}</li>
-        <li>Url: {{gifTitle}}</li>
+        <li>Username: {{gifUserName}}</li>
         <li>Number of clicks: {{clicksCount}}</li>
       </ul>
     </div>
@@ -28,6 +28,10 @@ export default {
       type: String,
       default: null,
     },
+    'gif-user-name': {
+      type: String,
+      default: null,
+    },
     'clicks-count': {
       type: Number,
       default: null,
@@ -41,9 +45,10 @@ export default {
 
 <style lang="scss" scoped>
 .container__detail {
-  background-color: blueviolet;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--color-background-mute);
+  color: var(--color-text);
 }
 </style>

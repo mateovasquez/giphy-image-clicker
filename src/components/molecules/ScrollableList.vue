@@ -2,7 +2,7 @@
   <div class="container__list">
     <ListOption
       v-for="gif in optionsList"
-      :key="gif.url"
+      :key="gif.id"
       :text="gif.title"
     />
   </div>
@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss" scoped>
 .container__list {
-  background-color: red;
-  height: 100%;
+  height: inherit;
+  overflow: scroll;
 }
 </style>
