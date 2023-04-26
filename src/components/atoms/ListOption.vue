@@ -9,11 +9,12 @@
 <script>
 export default {
   name: 'ListOption',
-  data() {
-    return {
-      text: 'Hello',
+  props: {
+    text: {
+      type: String,
+      default: null,
     }
-  }
+  },
 }
 </script>
 

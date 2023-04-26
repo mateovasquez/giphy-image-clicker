@@ -1,6 +1,10 @@
 <template>
   <div class="container__list">
-    <ListOption v-for="gif in list" :key="gif.url"/>
+    <ListOption
+      v-for="gif in optionsList"
+      :key="gif.url"
+      :text="gif.title"
+    />
   </div>
 </template>
 
@@ -12,22 +16,10 @@ export default {
   components: {
     ListOption,
   },
-  data() {
-    return {
-      list: [
-        {
-          gifurl: 'something',
-          title: 'other',
-        },
-        {
-          gifurl: 'else',
-          title: 'thing',
-        },
-        {
-          gifurl: 'here',
-          title: 'there',
-        },
-      ]
+  props: {
+    'options-list': {
+      type: Array,
+      default: () => [],
     }
   }
 }

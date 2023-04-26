@@ -1,18 +1,18 @@
 <template>
    <div class="container__detail__image">
-    <img :src="url" alt="gif">
+    <img :src="imageUrl" alt="gif">
    </div>
 </template>
 
 <script>
 export default {
   name: 'CustomImage',
-  data() {
-    return {
-      url: '',
-      // url: 'https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif',
+  props: {
+    'image-url': {
+      type: String,
+      default: null,
     }
-  }
+  },
 }
 </script>
 
