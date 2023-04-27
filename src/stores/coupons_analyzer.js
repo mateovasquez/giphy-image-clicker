@@ -60,8 +60,8 @@ export const useCouponsStore = defineStore('coupons', {
       const dollarOffDetails = this.getDiscountValuesByType(couponList, 'dollar-off');
       const data = {
         couponsCount: couponsCount,
-        percentOffDetails: percentOffDetails,
-        dollarOffDetails: dollarOffDetails,
+        percentOff: percentOffDetails,
+        dollarOff: dollarOffDetails,
       };
       return data;
     },

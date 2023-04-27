@@ -4,8 +4,8 @@
       <tr>
         <th>Title</th>
         <th>Coupon counts</th>
-        <th>Percent Off details</th>
-        <th>Dollar Off details</th>
+        <th>Percent Off discounts</th>
+        <th>Dollar Off discounts</th>
       </tr>
     </thead>
     <tbody>
@@ -26,22 +26,22 @@
             </li>
           </ul>
         </th>
-        <!-- Percent Off details -->
+        <!-- Percent Off discounts -->
         <th>
           <ul>
-            <li><b>Count:</b> {{data?.percentOffDetails?.count}} coupon(s)</li>
-            <li><b>Minimum:</b> {{data?.percentOffDetails?.min}} %</li>
-            <li><b>Maximum:</b> {{data?.percentOffDetails?.max}} %</li>
-            <li><b>Average:</b> {{data?.percentOffDetails?.avg}} %</li>
+            <li><b>Count:</b> {{data?.percentOff?.count}} coupon(s)</li>
+            <li><b>Minimum:</b> {{data?.percentOff?.min}} %</li>
+            <li><b>Maximum:</b> {{data?.percentOff?.max}} %</li>
+            <li><b>Average:</b> {{data?.percentOff?.avg}} %</li>
           </ul>
         </th>
-        <!-- Dollar OffDetails details -->
+        <!-- Dollar Off discounts -->
         <th>
           <ul>
-            <li><b>Count:</b> {{data?.dollarOffDetails?.count}} coupon(s)</li>
-            <li><b>Minimum:</b> {{data?.dollarOffDetails?.min}} $</li>
-            <li><b>Maximum:</b> {{data?.dollarOffDetails?.max}} $</li>
-            <li><b>Average:</b> {{data?.dollarOffDetails?.avg}} $</li>
+            <li><b>Count:</b> {{data?.dollarOff?.count}} coupon(s)</li>
+            <li><b>Minimum:</b> {{data?.dollarOff?.min}} $</li>
+            <li><b>Maximum:</b> {{data?.dollarOff?.max}} $</li>
+            <li><b>Average:</b> {{data?.dollarOff?.avg}} $</li>
           </ul>
         </th>
       </tr>
