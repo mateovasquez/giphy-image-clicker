@@ -1,6 +1,7 @@
 <template>
   <div class="container__detail">
     <CustomImage
+      v-if="gifId"
       class="custom-image"
       :image-url="gifUrl"
       @img-click="$emit('img-click', gifId)"
@@ -11,6 +12,9 @@
         <p><b>Username:</b> {{gifUserName}}</p>
         <p><b>Image clicks:</b> {{clicksCount}}</p>
       </div>
+    </div>
+    <div v-else class="center">
+      No GIF selected
     </div>
   </div>
 </template>
@@ -68,6 +72,9 @@ export default {
     b {
       font-weight: bold;
     }
+  }
+  & .center {
+    margin: auto;
   }
   @media screen and (max-width: 600px) {
     flex-direction: column;
