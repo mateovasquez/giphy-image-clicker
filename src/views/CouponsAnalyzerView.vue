@@ -4,18 +4,32 @@
     <section class="container">
       <AnalysisTable/>
     </section>
+    <h1>Charts</h1>
+    <section class="container">
+      <CouponCountPieChart
+        v-if="globalAnalysis?.data"
+        :coupons-data="globalAnalysis?.data?.couponsCount"
+      />
+    </section>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'pinia';
+import { mapState, mapActions } from 'pinia';
 import { useCouponsStore } from '../stores/coupons_analyzer.js'
 
 import AnalysisTable from '../components/molecules/AnalysisTable.vue';
+import CouponCountPieChart from '../components/molecules/CouponCountPieChart.vue';
 
 export default {
   name: 'CouponsAnalyzer',
-  components: { AnalysisTable },
+  components: {
+    AnalysisTable,
+    CouponCountPieChart
+  },
+  computed: {
+    ...mapState(useCouponsStore, ['globalAnalysis'])
+  },
   methods: {
     ...mapActions(
       useCouponsStore,
