@@ -1,12 +1,19 @@
 <template>
    <div class="container__detail__image">
-    <img :src="imageUrl" alt="gif">
+    <div
+      v-if="imageUrl"
+      class="square-container"
+      @click="$emit('img-click')"
+    >
+      <img :src="imageUrl" alt="gif">
+    </div>
    </div>
 </template>
 
 <script>
 export default {
   name: 'CustomImage',
+  emits: ['img-click'],
   props: {
     'image-url': {
       type: String,
@@ -18,12 +25,27 @@ export default {
 
 <style lang="scss" scoped>
 .container__detail__image {
-  width: 300px;
-  height: 300px;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  .square-container {
+    position: relative;
+    width: 85%;
+    cursor: pointer;
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
   }
 }
 </style>

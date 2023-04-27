@@ -4,19 +4,23 @@
     <section class="container">
       <ScrollableList
         :options-list="formattedGifsList"
+        :selected-id="selectedGif.id"
+        @click="selectGif"
       />
       <DetailSection
-        :gif-title="formattedGifsList[0]?.title"
-        :gif-url="formattedGifsList[0]?.url"
-        :gif-user-name="formattedGifsList[0]?.userName"
-        :clicks-count="formattedGifsList[0]?.clicks"
+        :gif-id="selectedGif.id"
+        :gif-title="selectedGif.title"
+        :gif-url="selectedGif.url"
+        :gif-user-name="selectedGif.userName"
+        :clicks-count="selectedGif.clicks"
+        @img-click="addImageClickCount"
       />
     </section>
   </div>
 </template>
 
 <script>
-import { mapStores, mapState, mapActions } from 'pinia';
+import { mapState, mapActions } from 'pinia';
 import { useImageClickerStore } from '../stores/image_clicker.js'
 
 import ScrollableList from '../components/molecules/ScrollableList.vue';
@@ -29,11 +33,16 @@ export default {
     DetailSection,
   },
   computed:{
-    ...mapStores(useImageClickerStore),
-    ...mapState(useImageClickerStore, ['formattedGifsList']),
+    ...mapState(
+      useImageClickerStore,
+      ['formattedGifsList', 'selectedGif']
+    ),
   },
   methods: {
-    ...mapActions(useImageClickerStore, ['getGifsFromGiphy']),
+    ...mapActions(
+      useImageClickerStore,
+      ['getGifsFromGiphy', 'selectGif', 'addImageClickCount']
+    ),
   },
   mounted() {
     this.getGifsFromGiphy()
@@ -47,8 +56,12 @@ export default {
   height: 70vh;
   display: grid;
   grid-template-columns: 40% 60%;
-  grid-template-rows: 1fr;
+  grid-template-rows: max-content;
   overflow: hidden;
   border-radius: 8px;
+  @media screen and (max-width: 768px) {
+    height: 80vh;
+    grid-template-columns: unset;
+  }
 }
 </style>

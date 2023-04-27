@@ -1,5 +1,9 @@
 <template>
-  <div class="container__list__option">
+  <div
+    class="container__list__option"
+    :class="{'selected': isSelected}"
+    @click="$emit('click')"
+  >
     <div class="container__list__option__text">
       {{text}}
     </div>
@@ -9,10 +13,15 @@
 <script>
 export default {
   name: 'ListOption',
+  emits: ['click'],
   props: {
     text: {
       type: String,
       default: null,
+    },
+    isSelected: {
+      type: Boolean,
+      default: false,
     }
   },
 }
@@ -21,7 +30,9 @@ export default {
 <style lang="scss" scoped>
 .container__list__option {
   width: 100%;
+  min-width: 150px;
   height: 100px;
+  min-height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,6 +40,10 @@ export default {
   color: var(--color-background-mute);
   border-bottom: 1px solid var(--color-background-mute);
   cursor: pointer;
+  &.selected {
+    background-color: var(--color-background-mute);
+    color: var(--color-text);
+  }
   &__text {
     text-align: center;
   }
@@ -36,6 +51,9 @@ export default {
     background-color: var(--vt-c-divider-dark-1);
     color: var(--color-text);
     transition: all .2s ease;
+  }
+  @media screen and (max-width: 768px) {
+    border-right: 1px solid var(--color-background-mute);
   }
 }
 </style>
