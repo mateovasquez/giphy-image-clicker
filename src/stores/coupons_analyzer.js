@@ -8,20 +8,16 @@ import _meanBy from 'lodash/meanBy';
 export const useCouponsStore = defineStore('coupons', {
   state: () => ({
     allCoupons: [],
-    globalDetails: {},
-    detailsByWebshop: [],
+    globalAnalysis: [],
+    webshopAnalysis: [],
   }),
   getters: {
     couponsWithPromotion: (state) => {
       return state.allCoupons.filter(coupon => coupon.promotion_type !== null);
     },
     couponsAnalysis: (state) => {
-      const allAnalysis = [...state.detailsByWebshop];
-      const globalObj = {
-        title: 'Global',
-        data: state.globalDetails,
-      };
-      allAnalysis.unshift(globalObj);
+      const allAnalysis = [...state.webshopAnalysis];
+      allAnalysis.unshift(state.globalAnalysis);
       return allAnalysis;
     }
   },
@@ -35,8 +31,16 @@ export const useCouponsStore = defineStore('coupons', {
       });
     },
     analyzeCoupons() {
-      this.globalDetails = this.computeDetails(this.couponsWithPromotion);
-      this.detailsByWebshop = this.getDetailsByWebshop();
+      this.getGlobalDetails();
+      this.getDetailsByWebshop();
+    },
+    getGlobalDetails() {
+      const coupons = this.couponsWithPromotion;
+      const globalAnalysis = {
+        title: 'Global',
+        data: this.computeDetails(coupons),
+      };
+      this.globalAnalysis = globalAnalysis;
     },
     getDetailsByWebshop() {
       const couponsByWebshop = _groupBy(this.couponsWithPromotion, 'coupon_webshop_name');
@@ -48,7 +52,7 @@ export const useCouponsStore = defineStore('coupons', {
           data: this.computeDetails(coupons),
         };
       });
-      return detailsByWebshop;
+      this.webshopAnalysis = detailsByWebshop;
     },
     computeDetails(couponList) {
       const couponsCount = this.getCouponsCountByType(couponList);
