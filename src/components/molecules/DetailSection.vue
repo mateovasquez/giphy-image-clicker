@@ -14,7 +14,7 @@
       </div>
     </div>
     <div v-else class="center">
-      No GIF selected
+      <span>No GIF selected</span>
     </div>
   </div>
 </template>
