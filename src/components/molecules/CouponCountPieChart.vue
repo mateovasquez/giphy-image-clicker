@@ -1,12 +1,12 @@
 <template>
-  <canvas id="pie-chart"></canvas>
+  <canvas id="pie-chart" height="400" width="100%"></canvas>
 </template>
 
 <script>
 import Chart from 'chart.js/auto';
 
 export default {
-  name: 'LineChart',
+  name: 'CouponCountPieChart',
   props: {
     'coupons-data': {
       type: Object,
@@ -32,7 +32,7 @@ export default {
         responsive: true,
         plugins: {
           legend: {
-            position: 'top',
+            position: 'right',
           },
           title: {
             display: true,
