@@ -2,7 +2,7 @@
   <div>
     <h1>Coupons statistics</h1>
     <section class="container">
-      
+      <AnalysisTable/>
     </section>
   </div>
 </template>
@@ -11,9 +11,11 @@
 import { mapActions } from 'pinia';
 import { useCouponsStore } from '../stores/coupons_analyzer.js'
 
+import AnalysisTable from '../components/molecules/AnalysisTable.vue';
+
 export default {
   name: 'CouponsAnalyzer',
-  components: {},
+  components: { AnalysisTable },
   methods: {
     ...mapActions(
       useCouponsStore,
@@ -28,5 +30,9 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  width: 100%;
+  height: 70vh;
+  overflow: scroll;
+  margin-top: 26px;
 }
 </style>

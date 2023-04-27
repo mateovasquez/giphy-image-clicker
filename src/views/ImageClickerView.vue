@@ -54,6 +54,7 @@ export default {
 .container {
   width: 100%;
   height: 70vh;
+  margin-top: 26px;
   display: grid;
   grid-template-columns: 40% 60%;
   grid-template-rows: max-content;

@@ -17,7 +17,7 @@ export const useCouponsStore = defineStore('coupons', {
     },
     couponsAnalysis: (state) => {
       const allAnalysis = [...state.webshopAnalysis];
-      allAnalysis.unshift(state.globalAnalysis);
+      allAnalysis.push(state.globalAnalysis);
       return allAnalysis;
     }
   },
@@ -37,7 +37,7 @@ export const useCouponsStore = defineStore('coupons', {
     getGlobalDetails() {
       const coupons = this.couponsWithPromotion;
       const globalAnalysis = {
-        title: 'Global',
+        title: 'Global Analysis',
         data: this.computeDetails(coupons),
       };
       this.globalAnalysis = globalAnalysis;
@@ -84,14 +84,15 @@ export const useCouponsStore = defineStore('coupons', {
       const couponsCount = filteredCoupons.length;
       const minDiscount = minCoupon['value'];
       const maxDiscount = maxCoupon['value'];
-      const averageDiscount = _meanBy(filteredCoupons, 'value');
+      let averageDiscount = _meanBy(filteredCoupons, 'value');
+      averageDiscount = averageDiscount.toFixed(2);
 
       const details = {
         type: type,
         count: couponsCount,
         min: minDiscount,
         max: maxDiscount,
-        average: averageDiscount,
+        avg: averageDiscount,
       };
       return details;
     }
