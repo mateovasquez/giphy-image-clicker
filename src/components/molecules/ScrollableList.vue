@@ -7,12 +7,6 @@
       :isSelected="gif.id === selectedId"
       @click="$emit('click', gif.id)"
     />
-    <ListOption
-      v-for="gif in optionsList"
-      :key="gif.id"
-      :text="gif.title"
-      @click="$emit('click', gif.id)"
-    />
   </div>
 </template>
 

@@ -10,11 +10,11 @@ export const useImageClickerStore = defineStore('imageClicker', {
     formattedGifsList: (state) => {
       const newList = state.gifsList.map(gif => {
         return {
-          id: gif.id,
-          title: gif.title,
-          url: gif.images.downsized_large.url,
-          userName: gif.user.display_name,
-          clicks: state.clicksCountById[gif.id] || 0,
+          id: gif?.id,
+          title: gif?.title,
+          url: gif?.images?.downsized_large?.url,
+          userName: gif?.username,
+          clicks: state.clicksCountById[gif?.id] || 0,
         }
       })
       return newList;
@@ -28,11 +28,12 @@ export const useImageClickerStore = defineStore('imageClicker', {
   },
   actions: {
     getGifsFromGiphy() {
-      // const apiKey = 'pRqhhngAO0XMd9vw08i5MJGQeputxF7n'
-      // const giphyApiUrl = `http://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=5`
+      // const apiKey = import.meta.env.VITE_GIPHY_API_KEY
+      // const giphyApiUrl = `http://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=10`;
       // fetch(giphyApiUrl)
       // .then(response => response.json())
       // .then(content => {
+      //   console.log(content.data);
       //   this.gifsList = content.data
       // })
       // .catch(error => {
