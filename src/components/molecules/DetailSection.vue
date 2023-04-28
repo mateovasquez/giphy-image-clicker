@@ -2,7 +2,7 @@
   <div class="container__detail">
     <CustomImage
       v-if="gifId"
-      class="custom-image"
+      class="container__detail__image"
       :image-url="gifUrl"
       @img-click="$emit('img-click', gifId)"
     />
@@ -14,7 +14,7 @@
       </div>
     </div>
     <div v-else class="center">
-      <span>No GIF selected</span>
+      <span data-cy="no-gif-selected">No GIF selected</span>
     </div>
   </div>
 </template>
