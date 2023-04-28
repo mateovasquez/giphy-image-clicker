@@ -1,57 +1,36 @@
-# giphy-image-clicker
+# Image Clicker / Coupons Application
+## Description
+*Image Clicker / Coupons* is a frontend application developed in `Vue.js 3.2.47` and `Vite 4.1.4`, alongside `pinia` for state management and other additional libraries like `chart.js` and `lodash`.
 
-This template should help get you started developing with Vue 3 in Vite.
+In order to ensure its integrity, the application is backed with component and end-to-end tests made with `Cypress`.
 
-## Recommended IDE Setup
+This application includes 2 different views: `ImageClickerView` and `CouponsAnalyzerView`. Each one of the views tackles a feature proposed.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+The `ImageClickerView` is accessed by `/image-clicker` route in the local server.
 
-## Customize configuration
+The `CouponsAnalyzerView` is accessed by `/coupons-analyzer` route in the local server.
+## Pre-requirements
+The `node` and `npm` versions used in the development of the application were the following:
+- node: `v16.13.2`
+- npm: `8.1.2`
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Installation steps
+- Clone or download the repository
+- Install the project with `npm i` or `npm install`
 
-## Project Setup
+## Run application
+You can run the local server with `npm run dev`, and access it through http://localhost:3000/
 
-```sh
-npm install
-```
+## Component test
+You can find the test in `cypress/component/DetailSection.cy.js`
 
-### Compile and Hot-Reload for Development
+Commands to run the test:
+- `npm run ct:run`: Runs the component test headlessly
+- `npm run ct:open`: Launches the tests in the browser
 
-```sh
-npm run dev
-```
+## End-to-end test
+You can find the test in `cypress/e2e/image_clicker_e2e.cy.js`
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Headed Component Tests with [Cypress Component Testing](https://on.cypress.io/component)
-
-```sh
-npm run test:unit:dev # or `npm run test:unit` for headless testing
-```
-
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run test:e2e:dev
-```
-
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Commands to run the test:
+- `npm run e2e:run`: Runs the end-to-end test headlessly
+- `npm run e2e:open`: Launches the tests in the browser *(while running the local server)*
