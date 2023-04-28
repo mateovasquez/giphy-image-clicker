@@ -8,7 +8,7 @@ module.exports = {
   overrides: [
     {
       files: [
-        '**/__tests__/*.{cy,spec}.{js,ts,jsx,tsx}',
+        'cypress/component/**/*.{cy,spec}.{js,jsx,ts,tsx}',
         'cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}'
       ],
       'extends': [

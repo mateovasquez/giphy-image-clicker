@@ -1,10 +1,10 @@
 <template>
   <div
-    class="container__list__option"
+    class="option"
     :class="{'selected': isSelected}"
     @click="$emit('click')"
   >
-    <div class="container__list__option__text">
+    <div class="option__text">
       {{text}}
     </div>
   </div>
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container__list__option {
+.option {
   width: 100%;
   min-width: 150px;
   height: 100px;

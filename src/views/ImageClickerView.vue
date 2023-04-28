@@ -21,7 +21,7 @@
 
 <script>
 import { mapState, mapActions } from 'pinia';
-import { useImageClickerStore } from '../stores/image_clicker.js'
+import { useImageClickerStore } from '../stores/image_clicker.js';
 
 import ScrollableList from '../components/molecules/ScrollableList.vue';
 import DetailSection from '../components/molecules/DetailSection.vue';
@@ -45,7 +45,7 @@ export default {
     ),
   },
   mounted() {
-    this.getGifsFromGiphy()
+    this.getGifsFromGiphy();
   }
 }
 </script>

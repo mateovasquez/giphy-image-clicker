@@ -1,5 +1,5 @@
 <template>
-  <div class="container__list">
+  <div class="list">
     <ListOption
       v-for="gif in optionsList"
       :key="gif.id"
@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container__list {
+.list {
   display: flex;
   flex-direction: column;
   height: inherit;

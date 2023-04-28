@@ -28,21 +28,24 @@ export const useImageClickerStore = defineStore('imageClicker', {
   },
   actions: {
     getGifsFromGiphy() {
-      // const apiKey = import.meta.env.VITE_GIPHY_API_KEY;
-      // const giphyApiUrl = `http://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=10`;
-      // fetch(giphyApiUrl)
-      // .then(response => response.json())
-      // .then(content => {
-      //   console.log(content.data);
+      // UNCOMMENT TO USE LOCAL FILE TO LOAD GIFS IF EXCEEDED API CALLS
+      // ADAPT cypress/e2e/image_clicker_e2e.cy.js IF UNCOMMENTED 
+      // fetch('./giphy-response.json')
+      // .then((response) => response.json())
+      // .then((content) => {
       //   this.gifsList = content.data
-      // })
-      // .catch(error => {
-      //   console.log(error);
       // });
-      fetch('./giphy-response.json')
-      .then((response) => response.json())
-      .then((content) => {
+
+      const apiKey = import.meta.env.VITE_GIPHY_API_KEY;
+      const giphyApiUrl = `http://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=10`;
+      fetch(giphyApiUrl)
+      .then(response => response.json())
+      .then(content => {
+        console.log(content.data);
         this.gifsList = content.data
+      })
+      .catch(error => {
+        console.log(error);
       });
     },
     selectGif(gifId) {

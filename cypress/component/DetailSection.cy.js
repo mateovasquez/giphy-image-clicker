@@ -1,4 +1,4 @@
-import DetailSection from '../molecules/DetailSection.vue'
+import DetailSection from '../../src/components/molecules/DetailSection.vue'
 
 describe('DetailSection', () => {
   it('no gif selected', () => {
@@ -14,12 +14,12 @@ describe('DetailSection', () => {
       'clicks-count': '0',
     }
     cy.mount(DetailSection, {props: props})
-    cy.get('.container__detail__description')
+    cy.get('.detail .detail__description')
     .should('be.visible')
     .should('include.text', 'Title: TEST_TITLE')
     .should('include.text', 'Username: TEST_USER_NAME')
     .should('include.text', 'Image clicks: 0');
-    cy.get('.container__detail__image img').should('have.attr', 'src').should('include','giphy.com')
+    cy.get('.detail .detail__image img').should('have.attr', 'src').should('include','giphy.com')
   })
 
   it('image click emits event', () => {
@@ -33,7 +33,7 @@ describe('DetailSection', () => {
       'onImgClick': onImgClickSpy
     };
     cy.mount(DetailSection, {props: props});
-    cy.get('.container__detail__image').click()
+    cy.get('.detail .detail__image').click()
     cy.get('@onImgClickSpy').should('have.been.calledWith', props['gif-id'])
   })
 })

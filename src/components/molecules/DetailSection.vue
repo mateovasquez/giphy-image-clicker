@@ -1,12 +1,12 @@
 <template>
-  <div class="container__detail">
+  <div class="detail">
     <CustomImage
       v-if="gifId"
-      class="container__detail__image"
+      class="detail__image"
       :image-url="gifUrl"
       @img-click="$emit('img-click', gifId)"
     />
-    <div v-if="gifId" class="container__detail__description">
+    <div v-if="gifId" class="detail__description">
       <div>
         <p><b>Title:</b> {{gifTitle}} </p>
         <p><b>Username:</b> {{gifUserName}}</p>
@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container__detail {
+.detail {
   height: 100%;
   display: flex;
   align-items: center;

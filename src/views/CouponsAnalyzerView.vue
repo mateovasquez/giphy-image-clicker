@@ -25,7 +25,7 @@
 
 <script>
 import { mapState, mapActions } from 'pinia';
-import { useCouponsStore } from '../stores/coupons_analyzer.js'
+import { useCouponsStore } from '../stores/coupons_analyzer.js';
 
 import AnalysisTable from '../components/molecules/AnalysisTable.vue';
 import CouponCountPieChart from '../components/molecules/CouponCountPieChart.vue';
@@ -44,11 +44,11 @@ export default {
   methods: {
     ...mapActions(
       useCouponsStore,
-      ['fetchCoupons',]
+      ['fetchCoupons']
     ),
   },
   mounted() {
-    this.fetchCoupons()
+    this.fetchCoupons();
   }
 }
 </script>

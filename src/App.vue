@@ -9,6 +9,3 @@ export default {
   components: RouterView,
 }
 </script>
-
-<style scoped>
-</style>
