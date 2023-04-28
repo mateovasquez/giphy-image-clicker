@@ -41,7 +41,6 @@ export const useImageClickerStore = defineStore('imageClicker', {
       fetch(giphyApiUrl)
       .then(response => response.json())
       .then(content => {
-        console.log(content.data);
         this.gifsList = content.data
       })
       .catch(error => {
