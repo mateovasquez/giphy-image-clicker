@@ -1,10 +1,14 @@
 <template>
   <div class="list">
     <ListOption
-      v-for="gif in optionsList"
+      v-for="(gif, index) in optionsList"
       :key="gif.id"
       :text="gif.title"
       :isSelected="gif.id === selectedId"
+      :class="{
+        'previous': selectedId && index === selectedGifIndex - 1,
+        'next': selectedId && index === selectedGifIndex + 1,
+      }"
       @click="$emit('click', gif.id)"
     />
   </div>
@@ -28,7 +32,18 @@ export default {
       type: [String, Number],
       default: null,
     },
-  }
+  },
+  computed: {
+    selectedGifIndex() {
+      let index = null;
+      if (this.selectedId) {
+        index = this.optionsList.findIndex(option => {
+          return option.id === this.selectedId
+        });
+      }
+      return index
+    },
+  },
 }
 </script>
 
@@ -38,9 +53,19 @@ export default {
   flex-direction: column;
   height: inherit;
   overflow: scroll;
+  .previous {
+    border-bottom-right-radius: 16px;
+  }
+  .next {
+    border-top-right-radius: 16px;
+  }
   @media screen and (max-width: 768px) {
     flex-direction: row;
     height: 100px;
+    .next {
+      border-top-right-radius: unset;
+      border-bottom-left-radius: 16px;
+    }
   }
 }
 </style>

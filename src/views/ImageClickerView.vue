@@ -60,6 +60,7 @@ export default {
   grid-template-rows: max-content;
   overflow: hidden;
   border-radius: 8px;
+  background-color: var(--color-background-mute);
   @media screen and (max-width: 768px) {
     height: 80vh;
     grid-template-columns: unset;

@@ -40,6 +40,7 @@ export default {
   color: var(--color-background-mute);
   border-bottom: 1px solid var(--color-background-mute);
   cursor: pointer;
+  transition: all .2s ease;
   &.selected {
     background-color: var(--color-background-mute);
     color: var(--color-text);
@@ -48,9 +49,7 @@ export default {
     text-align: center;
   }
   &:hover {
-    background-color: var(--vt-c-divider-dark-1);
     color: var(--color-text);
-    transition: all .2s ease;
   }
   @media screen and (max-width: 768px) {
     border-right: 1px solid var(--color-background-mute);

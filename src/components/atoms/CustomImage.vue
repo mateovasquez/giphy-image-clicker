@@ -43,6 +43,7 @@ export default {
       position: absolute;
       width: 100%;
       height: 100%;
+      border-radius: 8px;
       object-fit: cover;
       object-position: 50% 50%;
     }
