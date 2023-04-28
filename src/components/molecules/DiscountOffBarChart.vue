@@ -42,20 +42,22 @@ export default {
             label: 'Percentage Off (%)',
             data: percentageOffData,
             backgroundColor: ['#33a06f',],
+            barPercentage: 1.0,
           },
           {
             label: 'Dollar Off ($)',
             data: dollarOffData,
             backgroundColor: ['#3468a3'],
+            barPercentage: 1.0,
           },
         ]
       };
       const chartOptions = {
-        indexAxis: 'y',
+        indexAxis: 'x',
         responsive: true,
         plugins: {
           legend: {
-            position: 'right',
+            position: 'top',
           },
           title: {
             display: true,

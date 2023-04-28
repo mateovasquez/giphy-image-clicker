@@ -25,6 +25,7 @@ export default {
             label: 'Count',
             data: datasetData,
             backgroundColor: ['#823c83', '#33a06f', '#cd2d3f', '#3468a3', '#e0ad15'],
+            borderWidth: null,
           }
         ]
       };

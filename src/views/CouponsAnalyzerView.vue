@@ -56,7 +56,6 @@ export default {
 <style lang="scss" scoped>
 .table-container {
   width: 100%;
-  height: 70vh;
   overflow: scroll;
   margin: 26px 0;
 }
@@ -69,11 +68,19 @@ export default {
   height: 400px;
   div {
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:first-child {
       width: 40%;
     }
     &:last-child {
       width: 60%;
+    }
+    @media screen and (max-width: 768px) {
+      &:first-child, &:last-child {
+        width: 100%;
+      }
     }
   }
 }
