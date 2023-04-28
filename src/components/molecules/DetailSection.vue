@@ -35,7 +35,7 @@ export default {
     },
     'gif-title': {
       type: String,
-      default: 'N/A',
+      default: null,
     },
     'gif-url': {
       type: String,
@@ -43,11 +43,11 @@ export default {
     },
     'gif-user-name': {
       type: String,
-      default: 'N/A',
+      default: null,
     },
     'clicks-count': {
       type: [String, Number],
-      default: 'N/A',
+      default: null,
     },
   },
   data() {
