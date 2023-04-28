@@ -11,5 +11,8 @@ module.exports = defineConfig({
       framework: 'vue',
       bundler: 'vite'
     }
-  }
+  },
+  env: {
+    giphy_api_key: 'pRqhhngAO0XMd9vw08i5MJGQeputxF7n',
+  },
 })
