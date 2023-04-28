@@ -28,7 +28,7 @@ export const useImageClickerStore = defineStore('imageClicker', {
   },
   actions: {
     getGifsFromGiphy() {
-      // const apiKey = import.meta.env.VITE_GIPHY_API_KEY
+      // const apiKey = import.meta.env.VITE_GIPHY_API_KEY;
       // const giphyApiUrl = `http://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=10`;
       // fetch(giphyApiUrl)
       // .then(response => response.json())

@@ -1,5 +1,5 @@
 <template>
-   <div class="container__detail__image">
+   <div class="custom-image">
     <div
       v-if="imageUrl"
       class="square-container"
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container__detail__image {
+.custom-image {
   display: flex;
   justify-content: center;
   align-items: center;

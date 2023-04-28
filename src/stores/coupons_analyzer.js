@@ -84,8 +84,7 @@ export const useCouponsStore = defineStore('coupons', {
       const couponsCount = filteredCoupons.length;
       const minDiscount = minCoupon['value'];
       const maxDiscount = maxCoupon['value'];
-      let averageDiscount = _meanBy(filteredCoupons, 'value');
-      averageDiscount = averageDiscount.toFixed(2);
+      const averageDiscount = _meanBy(filteredCoupons, 'value').toFixed(2);
 
       const details = {
         type: type,
